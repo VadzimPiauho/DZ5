@@ -15,10 +15,10 @@ namespace dz5
 
         public Games()
         {
-            SportCar sportCar = new SportCar("Спортивный");
-            passengerCar passengerCar = new passengerCar("Легковой");
-            cargoCar cargoCar = new cargoCar("Грузовой");
-            busCar busCar = new busCar("Автобус");
+             sportCar = new SportCar("Спортивный");
+             passengerCar = new passengerCar("Легковой");
+             cargoCar = new cargoCar("Грузовой");
+             busCar = new busCar("Автобус");
         }
 
     }

@@ -16,12 +16,11 @@ namespace dz5
             this.carName = carName;
             
         }
-
-        public abstract void drive();
+        public abstract void drive(Random rand);
 
         public virtual void printSpeed()
         {
-            Console.WriteLine($"Скорость {carName} составляет {speed}");
+            Console.WriteLine($"{carName} прошел {speed}");
         }
 
     }
