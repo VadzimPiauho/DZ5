@@ -8,6 +8,7 @@ namespace dz5
 {
     class SportCar : Car
     {
+        public event EventHandler finish;
         public SportCar(string carName) : base(carName)
         {
             this.speed = 0;
@@ -15,7 +16,11 @@ namespace dz5
 
         public override void drive(Random rand)
         {    
-            speed += rand.Next(1, 12);
+            speed += rand.Next(1, 10);
+            if (speed >= 100)
+            {
+                if (finish != null) finish(this, EventArgs.Empty);
+            }
         }
     }
 }
