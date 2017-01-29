@@ -11,7 +11,7 @@ namespace dz5
     
     class busCar : Car
     {
-        private event Program.CarDelegate EventName;
+        //private event Program.CarDelegate EventName;
         public busCar(string carName) : base(carName)
         {
             this.speed = 0;
