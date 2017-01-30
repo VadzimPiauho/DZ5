@@ -31,7 +31,7 @@ namespace dz5
             games.cargoCar.onCount += games.cargoCar.Message;
             games.passengerCar.onCount += games.passengerCar.Message;
             games.sportCar.onCount += games.sportCar.Message;
-            games.Game(d1,d2,rand, ref gameON, games);
+            games.Game(ref d1,d2,rand, ref gameON, games);
         }
         //static void FinishGames(object sender, EventArgs e)
         //{
