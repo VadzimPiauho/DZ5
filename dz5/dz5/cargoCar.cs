@@ -7,21 +7,25 @@ using System.Threading.Tasks;
 namespace dz5
 {
 
-    class cargoCar: Car
+    public class cargoCar: Car
     {
         public event EventHandler finish;
         public cargoCar(string carName) : base(carName)
         {
-            this.speed = 0;
+            this.distance = 0;
         }
-
         public override void drive(Random rand)
-        {      
-            speed += rand.Next(1, 10);
-            if (speed >= 100)
+        {
+            distance += rand.Next(1, 10);
+            if (distance >= 100)
             {
-                if (finish != null) finish(this, EventArgs.Empty);
+              distance = 100;
+                onCountMetod();
             }
+        }
+        public override void Message()
+        {
+            Console.WriteLine("Грузовой финишировал");
         }
     }
 }

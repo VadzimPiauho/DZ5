@@ -10,13 +10,11 @@ namespace dz5
     public delegate void CarDelegate(Random rand);
     public delegate void printNameDelegate();
 
-    
     class Program
     {
-
         static void Main(string[] args)
         {
-            bool game = true;
+            bool gameON = true;
             Random rand = new Random();
             Games games = new Games();
 
@@ -28,48 +26,13 @@ namespace dz5
             d2 += games.cargoCar.printSpeed;
             d2 += games.passengerCar.printSpeed;
             d2 += games.sportCar.printSpeed;
-            //games.busCar.finish += new EventHandler(FinishGames);
-            games.busCar.finish += delegate (object sender, EventArgs e)
-            {
-                //game = false;
-                Console.WriteLine("Автобус победил !\n");
-                d2 -= games.busCar.printSpeed;
-            };
-            games.passengerCar.finish += delegate (object sender, EventArgs e)
-            {
-                //game = false;
-                Console.WriteLine("Легковой победил !\n");
-                d2 -= games.passengerCar.printSpeed;
-            };
-            games.cargoCar.finish += delegate (object sender, EventArgs e)
-            {
-                //game = false;
-                Console.WriteLine("Грузовой победил !\n");
-                d2 -= games.cargoCar.printSpeed;
-            };
-            games.sportCar.finish += delegate (object sender, EventArgs e)
-            {
-                //game = false;
-                Console.WriteLine("Спортивный победил !\n");
-                d2 -= games.sportCar.printSpeed;
-            };
-
-           
-
-            //Console.WriteLine(games.busCar.carName);
             d2();
-            while (game)
-            {
-               
-                Thread.Sleep(1000);
-                Console.WriteLine("*******************************");
-                d1(rand);
-                d2();
-            }
-           
-
+            games.busCar.onCount += games.busCar.Message;
+            games.cargoCar.onCount += games.cargoCar.Message;
+            games.passengerCar.onCount += games.passengerCar.Message;
+            games.sportCar.onCount += games.sportCar.Message;
+            games.Game(d1,d2,rand, ref gameON, games);
         }
-
         //static void FinishGames(object sender, EventArgs e)
         //{
         //    game = false;
